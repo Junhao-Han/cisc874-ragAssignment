@@ -1,0 +1,26 @@
+query = "Where is Queen's University?"
+top_k = 3
+max_new_tokens = 128
+
+print("\n=== Tuneable Parameters ===")
+print (f"top_k = {top_k}")
+print (f"max_new_tokens = {max_new_tokens}\n")
+
+print("=== Input Query ===")
+print(query + "\n")
+
+print("=== Retrieved Chunks ===")
+for idx, sim, txt in retrieve(query, top_k):
+    print(f"[{idx}] (score={sim:.3f})\n{txt}\n")
+
+print("\n=== RAG Answer ===")
+## RAG answer here
+rag_answer = rag_generate(query, top_k, max_new_tokens, return_full=False)
+print(rag_answer)
+
+print("\n=== RAW LLM Output ===")
+## RAW LLM Output here
+raw_answer = raw_generate(query, max_new_tokens, return_full=False)
+print(raw_answer)
+
+print("\n=== Test Complete ===")

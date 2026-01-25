@@ -1,0 +1,40 @@
+=== Tuneable Parameters ===
+top_k = 3
+max_new_tokens = 128
+
+=== Input Query ===
+Where is Queen's University?
+
+=== Retrieved Chunks ===
+[0] (score=0.735)
+Queen's University at Kingston,[3][12][13] commonly known as Queen's University or simply Queen's, is a public research university in Kingston,
+
+[9] (score=0.718)
+Queen's is a co-educational university with more than 33,842 students and over 131,000 alumni living worldwide.[7][18] Notable alumni include
+
+[2] (score=0.650)
+England.[9] Queen's is organized into eight faculties and schools.
+
+
+=== RAG Answer ===
+
+    You are a helpful assistant. Answer the following question using 
+    the provided relevant information.
+
+    Question: Where is Queen's University?
+    Relevant information: 
+- Queen's University at Kingston,[3][12][13] commonly known as Queen's University or simply Queen's, is a public research university in Kingston,
+- Queen's is a co-educational university with more than 33,842 students and over 131,000 alumni living worldwide.[7][18] Notable alumni include
+- England.[9] Queen's is organized into eight faculties and schools.
+    
+    Answer: Queen's University is located in Kingston, Ontario, Canada.
+
+=== RAW LLM Output ===
+
+    You are a helpful assistant. Answer the following question in one sentence.
+
+    Question: Where is Queen's University?
+    
+    Answer: Queen's University is located in Kingston, Ontario, Canada.
+
+=== Test Complete ===

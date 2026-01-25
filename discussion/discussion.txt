@@ -1,0 +1,17 @@
+Section 7:
+(1) RAG vs. Raw Comparison (topk=3, max_new_tokens=128)
+Path: discussion/output/original.txt
+
+In the RAG answer, the LLM is asked to answer the question using the provided relevant information. While in the raw answer, the LLM is asked to answer the question directly without any context.
+
+The RAG answer has answered the question accurately and precisely: “Queen’s University is located in Kingston, Ontario, Canada.” While in the raw answer, it continuously generated a sequence of “question and answer” dialogues, some of which are not relevant to the question.
+
+I think the problem is due to how the LLM is trained. It aims to continue the prompt in a conversational style. However, with the assistance of RAG, it may explicitly tell the LLM the boundary of the conversation and make it focus on the provided information, thus answering the question more accurately.
+
+(2) Output Comparison:
+Path: discussion/output/improved.txt
+
+To improve the above problem, I increased the max_new_tokens from 128 to 500. I surprisingly found that the raw LLM outpu`t more “question and answer” dialogues. The problem might mainly be due to how the model is trained; it does not have a clear boundary on when to stop the generation.
+
+So, I added one more sentence to the raw answer prompt: “… answer the question in one sentence.” Then, both test trials had generated a precise and accurate answer.
+
